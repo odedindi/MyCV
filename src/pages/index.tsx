@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 			<Objective />
 			<Divider my={15} />
 			<Grid grow>
-				{ process.env.NODE_ENV !== 'production' ? 
+				{ process.env.NODE_ENV !== 'production' ? <>
                                   ( <Grid.Col span={12}></Grid.Col>
 				<Grid.Col sm={12} md={5}>
 					<Sidebar />
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 							</Accordion.Item>
 						</Accordion>
 					</Container>
-				</Grid.Col> )
+				</Grid.Col></> )
                                   : (<Container padding={15}>
 						<Accordion multiple initialItem={0}>
 							<Accordion.Item label="Experience">
