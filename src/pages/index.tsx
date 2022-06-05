@@ -22,11 +22,12 @@ const Home: NextPage = () => {
 			<Objective />
 			<Divider my={15} />
 			<Grid grow>
-				<Grid.Col span={12}></Grid.Col>
+				{ process.env.NODE_ENV !== 'production' ? 
+                                  ( <Grid.Col span={12}></Grid.Col>
 				<Grid.Col sm={12} md={5}>
 					<Sidebar />
 				</Grid.Col>
-				<Grid.Col sm={12} md={7}>
+				<Grid.Col sm={12} md={7}>}
 					<Container padding={15}>
 						<Accordion multiple initialItem={0}>
 							<Accordion.Item label="Experience">
@@ -38,7 +39,18 @@ const Home: NextPage = () => {
 							</Accordion.Item>
 						</Accordion>
 					</Container>
-				</Grid.Col>
+				</Grid.Col> )
+                                  : (<Container padding={15}>
+						<Accordion multiple initialItem={0}>
+							<Accordion.Item label="Experience">
+								<Positions />
+							</Accordion.Item>
+
+							<Accordion.Item label="Education">
+								<Education />
+							</Accordion.Item>
+						</Accordion>
+					</Container>)}
 			</Grid>
 			<Footer />
 		</AppShell>
